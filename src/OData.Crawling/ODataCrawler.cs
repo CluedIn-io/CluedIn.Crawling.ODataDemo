@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using CluedIn.Core.Crawling;
 using CluedIn.Crawling.OData.Core;
+using CluedIn.Crawling.OData.Core.Models;
 using CluedIn.Crawling.OData.Infrastructure.Factories;
 
 namespace CluedIn.Crawling.OData
@@ -26,7 +27,7 @@ namespace CluedIn.Crawling.OData
             //retrieve data from provider and yield objects
 
             //TODO add example type
-            foreach (var item in client.Get<T>())
+            foreach (var item in client.Get<Data>())
             {
                 yield return item;
             }
