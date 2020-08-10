@@ -25,6 +25,7 @@ namespace CluedIn.Crawling.OData.Infrastructure
         private readonly ILogger log;
 
         private readonly IRestClient client;
+        private readonly ODataCrawlJobData _oDataCrawlJobData;
 
         public ODataClient(ILogger log, ODataCrawlJobData odataCrawlJobData, IRestClient client) // TODO: pass on any extra dependencies
         {
@@ -73,6 +74,16 @@ namespace CluedIn.Crawling.OData.Infrastructure
 
         public IEnumerable<T> Get<T>()
         {
+
+            DateTimeOffset lastCrawlFinishTime;
+            if (_oDataCrawlJobData.LastCrawlFinishTime == DateTimeOffset.Parse("1/1/0001 12:00:00 AM +00:00"))
+            {
+                lastCrawlFinishTime = DateTimeOffset.Parse("01/01/1753 00:00:00");
+            }
+            else
+            {
+                lastCrawlFinishTime = _oDataCrawlJobData.LastCrawlFinishTime;
+            }
             //TODO replace with values from config
             var url = "";
             var token = "";
