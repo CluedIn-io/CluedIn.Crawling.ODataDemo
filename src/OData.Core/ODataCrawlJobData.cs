@@ -4,6 +4,7 @@ namespace CluedIn.Crawling.OData.Core
 {
     public class ODataCrawlJobData : CrawlJobData
     {
-        public string ApiKey { get; set; }
+        public string Url { get; set; }
+        public string Token { get; set; }
     }
 }

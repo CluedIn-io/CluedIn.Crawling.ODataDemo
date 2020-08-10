@@ -28,7 +28,7 @@ namespace CluedIn.Provider.OData.Unit.Test.ODataProvider
         }
 
         [Theory]
-        [InlineAutoData(ODataConstants.KeyName.ApiKey, nameof(ODataCrawlJobData.ApiKey))]
+        [InlineAutoData(ODataConstants.KeyName.Url, nameof(ODataCrawlJobData.Url))]
         public async Task InitializesProperties(string key, string propertyName, string sampleValue, Guid organizationId, Guid userId, Guid providerDefinitionId)
         {
             var dictionary = new Dictionary<string, object>()

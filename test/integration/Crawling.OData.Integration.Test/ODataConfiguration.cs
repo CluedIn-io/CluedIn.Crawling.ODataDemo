@@ -9,7 +9,7 @@ namespace CluedIn.Crawling.OData.Integration.Test
     {
       return new Dictionary<string, object>
             {
-                { ODataConstants.KeyName.ApiKey, "demo" }
+                { ODataConstants.KeyName.Url, "demo" }
             };
     }
   }

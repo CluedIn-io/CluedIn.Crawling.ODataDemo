@@ -42,7 +42,7 @@ namespace CluedIn.Provider.OData.Unit.Test.ODataProvider
 
 
         [Theory]
-        [InlineAutoData("ApiKey", "ApiKey", "some-value")]
+        [InlineAutoData("Url", "Url", "some-value")]
         // TODO add data for other properties that need populating
         // Fill in the values for expected results ....
         public void Returns_Expected_Data(string key, string propertyName, object expectedValue, Guid organizationId, Guid userId, Guid providerDefinitionId) // TODO add additional parameters to populate CrawlJobData instance

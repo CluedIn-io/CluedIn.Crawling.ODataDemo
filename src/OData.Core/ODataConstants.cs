@@ -9,7 +9,8 @@ namespace CluedIn.Crawling.OData.Core
     {
         public struct KeyName
         {
-            public const string ApiKey = nameof(ApiKey);
+            public const string Url = nameof(Url);
+            public const string Token = nameof(Token);
         }
 
         // TODO Complete the following section

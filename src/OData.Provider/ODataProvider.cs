@@ -38,8 +38,10 @@ namespace CluedIn.Provider.OData
                 throw new ArgumentNullException(nameof(configuration));
 
             var odataCrawlJobData = new ODataCrawlJobData();
-            if (configuration.ContainsKey(ODataConstants.KeyName.ApiKey))
-            { odataCrawlJobData.ApiKey = configuration[ODataConstants.KeyName.ApiKey].ToString(); }
+            if (configuration.ContainsKey(ODataConstants.KeyName.Url))
+            { odataCrawlJobData.Url = configuration[ODataConstants.KeyName.Url].ToString(); }
+            if (configuration.ContainsKey(ODataConstants.KeyName.Token))
+            { odataCrawlJobData.Token = configuration[ODataConstants.KeyName.Token].ToString(); }
 
             return await Task.FromResult(odataCrawlJobData);
         }
@@ -75,7 +77,8 @@ namespace CluedIn.Provider.OData
             {
                 //TODO add the transformations from specific CrawlJobData object to dictionary
                 // add tests to GetHelperConfigurationBehaviour.cs
-                dictionary.Add(ODataConstants.KeyName.ApiKey, odataCrawlJobData.ApiKey);
+                dictionary.Add(ODataConstants.KeyName.Url, odataCrawlJobData.Url);
+                dictionary.Add(ODataConstants.KeyName.Token, odataCrawlJobData.Token);
             }
 
             return await Task.FromResult(dictionary);

@@ -33,6 +33,7 @@ namespace CluedIn.Crawling.OData.Infrastructure
             {
                 throw new ArgumentNullException(nameof(odataCrawlJobData));
             }
+            _oDataCrawlJobData = odataCrawlJobData ?? throw new ArgumentNullException(nameof(odataCrawlJobData));
 
             if (client == null)
             {
@@ -44,7 +45,7 @@ namespace CluedIn.Crawling.OData.Infrastructure
 
             // TODO use info from odataCrawlJobData to instantiate the connection
             client.BaseUrl = new Uri(BaseUri);
-            client.AddDefaultParameter("api_key", odataCrawlJobData.ApiKey, ParameterType.QueryString);
+            client.AddDefaultParameter("api_key", odataCrawlJobData.Url, ParameterType.QueryString);
         }
 
         private async Task<T> GetAsync<T>(string url)
